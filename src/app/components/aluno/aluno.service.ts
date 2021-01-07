@@ -22,10 +22,25 @@ export class AlunoService {
   }
 
   create(aluno: Aluno): Observable<Aluno> {
-    return this.http.post<Aluno>(this.baseUrl, aluno)
+    return this.http.post<Aluno>(this.baseUrl, aluno);
   }
 
   read(): Observable<Aluno[]> {
-    return this.http.get<Aluno[]>(this.baseUrl)
+    return this.http.get<Aluno[]>(this.baseUrl);
+  }
+
+  readById(id: string): Observable<Aluno>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Aluno>(url);
+  }
+
+  update(aluno: Aluno): Observable<Aluno>{
+    const url = `${this.baseUrl}/${aluno.id}`;
+    return this.http.put<Aluno>(url, aluno);
+  }
+
+  delete(id: number): Observable<Aluno>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Aluno>(url);
   }
 }

@@ -10,13 +10,13 @@ import { AlunoService } from '../aluno.service';
 export class AlunoReadComponent implements OnInit {
 
   alunos: Aluno[] | undefined
+  displayedColumns = ['id', 'name', 'lastname', 'cpf', 'action']
 
   constructor(private alunoService: AlunoService) { }
 
   ngOnInit(): void {
     this.alunoService.read().subscribe(alunos => {
       this.alunos = alunos
-      console.log(alunos)
     })
   }
 

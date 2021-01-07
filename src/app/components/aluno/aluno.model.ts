@@ -1,5 +1,5 @@
 export interface Aluno{
-    id?: number
+    id: number
     name: string
     lastname: string
     cpf: number

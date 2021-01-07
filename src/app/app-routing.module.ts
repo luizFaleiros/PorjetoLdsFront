@@ -7,6 +7,8 @@ import { TrabalhoCrudComponent } from './views/trabalho-crud/trabalho-crud.compo
 import { MeusDadosComponent } from './views/meus-dados/meus-dados.component';
 import { CalendarioComponent } from './views/calendario/calendario.component';
 import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
+import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-update.component';
+import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component';
 
 
 const routes: Routes = [
@@ -33,6 +35,14 @@ const routes: Routes = [
   {
     path: "alunos/create",
     component: AlunoCreateComponent
+  },
+  {
+    path: "alunos/update/:id",
+    component: AlunoUpdateComponent
+  },
+  {
+    path: "alunos/delete/:id",
+    component: AlunoDeleteComponent
   }
 ];
 

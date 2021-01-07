@@ -23,8 +23,8 @@
     },
     {
       "id": 4,
-      "name": "Paulo",
-      "lastname": "Lima",
+      "name": "Sergio",
+      "lastname": "Zica",
       "cpf": "12312312312",
       "personType": 1
     },
@@ -41,6 +41,13 @@
       "cpf": "7894561345",
       "personType": null,
       "id": 6
+    },
+    {
+      "name": "Lula",
+      "lastname": "Inacio",
+      "cpf": "12345678945",
+      "personType": null,
+      "id": 7
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,8 +25,14 @@ import { FormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AlunoReadComponent } from './components/aluno/aluno-read/aluno-read.component';
+import { MatTableModule } from '@angular/material/table';
 
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-update.component';
+import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component'
 
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +46,9 @@ import { AlunoReadComponent } from './components/aluno/aluno-read/aluno-read.com
     CalendarioComponent,
     MeusDadosComponent,
     AlunoCreateComponent,
-    AlunoReadComponent
+    AlunoReadComponent,
+    AlunoUpdateComponent,
+    AlunoDeleteComponent
     
   ],
   imports: [
@@ -56,9 +64,15 @@ import { AlunoReadComponent } from './components/aluno/aluno-read/aluno-read.com
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
+
+
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
