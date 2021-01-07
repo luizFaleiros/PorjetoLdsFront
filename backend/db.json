@@ -1,0 +1,46 @@
+{
+  "alunos": [
+    {
+      "id": 1,
+      "name": "Maria",
+      "lastname": "testeeee",
+      "cpf": 12345678956,
+      "personType": 1
+    },
+    {
+      "id": 2,
+      "name": "João",
+      "lastname": "testeeee",
+      "cpf": 98765432112,
+      "personType": 1
+    },
+    {
+      "id": 3,
+      "name": "Pedro",
+      "lastname": "testeeee",
+      "cpf": 11111432112,
+      "personType": 1
+    },
+    {
+      "id": 4,
+      "name": "Paulo",
+      "lastname": "Lima",
+      "cpf": "12312312312",
+      "personType": 1
+    },
+    {
+      "name": "nome",
+      "lastname": "sobrenome1",
+      "cpf": "12345678952",
+      "personType": null,
+      "id": 5
+    },
+    {
+      "name": "nome222",
+      "lastname": "sobrenome222",
+      "cpf": "7894561345",
+      "personType": null,
+      "id": 6
+    }
+  ]
+}

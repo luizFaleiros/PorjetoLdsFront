@@ -17,6 +17,14 @@ import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 import { TrabalhoCrudComponent } from './views/trabalho-crud/trabalho-crud.component';
 import { CalendarioComponent } from './views/calendario/calendario.component';
 import { MeusDadosComponent } from './views/meus-dados/meus-dados.component';
+import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AlunoReadComponent } from './components/aluno/aluno-read/aluno-read.component';
 
 
 @NgModule({
@@ -30,7 +38,10 @@ import { MeusDadosComponent } from './views/meus-dados/meus-dados.component';
     AlunoCrudComponent,
     TrabalhoCrudComponent,
     CalendarioComponent,
-    MeusDadosComponent
+    MeusDadosComponent,
+    AlunoCreateComponent,
+    AlunoReadComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -39,7 +50,13 @@ import { MeusDadosComponent } from './views/meus-dados/meus-dados.component';
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

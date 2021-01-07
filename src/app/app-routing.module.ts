@@ -6,6 +6,7 @@ import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
 import { TrabalhoCrudComponent } from './views/trabalho-crud/trabalho-crud.component';
 import { MeusDadosComponent } from './views/meus-dados/meus-dados.component';
 import { CalendarioComponent } from './views/calendario/calendario.component';
+import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: "meusdados",
     component: MeusDadosComponent
+  },
+  {
+    path: "alunos/create",
+    component: AlunoCreateComponent
   }
 ];
 
