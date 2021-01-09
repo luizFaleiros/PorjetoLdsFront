@@ -48,6 +48,37 @@
       "cpf": "12345678945",
       "personType": null,
       "id": 7
+    },
+    {
+      "name": "ddsadsa",
+      "lastname": "dsadsad",
+      "cpf": "dsadsa",
+      "personType": "STUDANT",
+      "id": 8
+    }
+  ],
+  "professores": [
+    {
+      "id": 1,
+      "name": "Maria joao 123",
+      "lastname": "123",
+      "cpf": "123",
+      "personType": 1
+    },
+    {
+      "id": 2,
+      "name": "João",
+      "lastname": "testeeee",
+      "cpf": 98765432112,
+      "personType": 1
+    },
+    {
+      "id": 8,
+      "name": "1234",
+      "lastName": "",
+      "cpf": "2312434",
+      "personType": "PROFESSOR",
+      "lastname": "12343"
     }
   ]
 }

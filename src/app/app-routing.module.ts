@@ -9,6 +9,11 @@ import { CalendarioComponent } from './views/calendario/calendario.component';
 import { AlunoCreateComponent } from './components/aluno/aluno-create/aluno-create.component';
 import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-update.component';
 import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component';
+import { ProfessorCrudComponent } from './views/professor-crud/professor-crud.component';
+import { ProfessorCreateComponent } from './components/professor/professor-create/professor-create.component';
+import { ProfessorUpdateComponent } from './components/professor/professor-update/professor-update.component';
+import { ProfessorDeleteComponent } from './components/professor/professor-delete/professor-delete.component';
+
 
 
 const routes: Routes = [
@@ -19,6 +24,10 @@ const routes: Routes = [
   {
     path: "alunos",
     component: AlunoCrudComponent
+  },
+  {
+    path: "professores",
+    component: ProfessorCrudComponent
   },
   {
     path: "trabalhos",
@@ -43,6 +52,18 @@ const routes: Routes = [
   {
     path: "alunos/delete/:id",
     component: AlunoDeleteComponent
+  },
+  {
+    path: "professores/create",
+    component: ProfessorCreateComponent
+  },
+  {
+    path: "professores/update/:id",
+    component: ProfessorUpdateComponent
+  },
+  {
+    path: "professores/delete/:id",
+    component: ProfessorDeleteComponent
   }
 ];
 

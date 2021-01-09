@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlunoService } from '../aluno.service';
 import { Router } from '@angular/router';
 import { Aluno } from '../aluno.model';
+import { PersonType } from '../person-type-enum';
 
 @Component({
   selector: 'app-aluno-create',
@@ -11,10 +12,11 @@ import { Aluno } from '../aluno.model';
 export class AlunoCreateComponent implements OnInit {
 
   aluno: Aluno = {
+    id: '',
     name: '',
-    lastname: '',
+    lastName: '',
     cpf: null as any,
-    personType: null as any
+    personType: PersonType.STUDANT
   }
 
   constructor(private alunoService: AlunoService,

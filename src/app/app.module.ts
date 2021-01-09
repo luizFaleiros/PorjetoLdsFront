@@ -3,7 +3,6 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/templates/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -14,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './views/home/home.component';
 import { AlunoCrudComponent } from './views/aluno-crud/aluno-crud.component';
+import { ProfessorCrudComponent } from './views/professor-crud/professor-crud.component';
 import { TrabalhoCrudComponent } from './views/trabalho-crud/trabalho-crud.component';
 import { CalendarioComponent } from './views/calendario/calendario.component';
 import { MeusDadosComponent } from './views/meus-dados/meus-dados.component';
@@ -30,13 +30,17 @@ import { MatTableModule } from '@angular/material/table';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { AlunoUpdateComponent } from './components/aluno/aluno-update/aluno-update.component';
-import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component'
+import { AlunoDeleteComponent } from './components/aluno/aluno-delete/aluno-delete.component';
+import { ProfessorCreateComponent } from './components/professor/professor-create/professor-create.component';
+import { ProfessorDeleteComponent } from './components/professor/professor-delete/professor-delete.component';
+import { ProfessorReadComponent } from './components/professor/professor-read/professor-read.component';
+import { ProfessorUpdateComponent } from './components/professor/professor-update/professor-update.component';
+
 
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HeaderComponent,
     FooterComponent,
     NavComponent,
@@ -48,7 +52,13 @@ registerLocaleData(localePt);
     AlunoCreateComponent,
     AlunoReadComponent,
     AlunoUpdateComponent,
-    AlunoDeleteComponent
+    AlunoDeleteComponent,
+    ProfessorCreateComponent,
+    ProfessorDeleteComponent,
+    ProfessorReadComponent,
+    ProfessorUpdateComponent,
+    ProfessorCrudComponent
+
     
   ],
   imports: [

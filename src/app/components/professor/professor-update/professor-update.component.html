@@ -1,0 +1,25 @@
+<mat-card class="card mat-elevation-z4">
+    <mat-card-title>Alterar dados do professor</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="professor.name" name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Sobrenome" [(ngModel)]="professor.lastname" name="lastname">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Cpf" [(ngModel)]="professor.cpf" name="cpf">
+        </mat-form-field>
+
+    </form>
+
+
+    <button mat-raised-button (click)="updateProfessor()" color="primary">
+        Atualizar
+    </button>
+
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+
+</mat-card>

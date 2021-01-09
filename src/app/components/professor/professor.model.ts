@@ -1,6 +1,6 @@
 import { PersonType } from "./person-type-enum";
 
-export interface Aluno{
+export interface Professor{
     id: number
     name: string
     lastName: string
