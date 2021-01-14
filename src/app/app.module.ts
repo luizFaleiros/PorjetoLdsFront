@@ -39,6 +39,7 @@ import { LoginComponent } from './account/login/login.component';
 import { AuthenticationComponent } from './views/authentication/authentication.component';
 
 
+
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
