@@ -35,6 +35,8 @@ import { ProfessorCreateComponent } from './components/professor/professor-creat
 import { ProfessorDeleteComponent } from './components/professor/professor-delete/professor-delete.component';
 import { ProfessorReadComponent } from './components/professor/professor-read/professor-read.component';
 import { ProfessorUpdateComponent } from './components/professor/professor-update/professor-update.component';
+import { LoginComponent } from './account/login/login.component';
+import { AuthenticationComponent } from './views/authentication/authentication.component';
 
 
 registerLocaleData(localePt);
@@ -57,7 +59,9 @@ registerLocaleData(localePt);
     ProfessorDeleteComponent,
     ProfessorReadComponent,
     ProfessorUpdateComponent,
-    ProfessorCrudComponent
+    ProfessorCrudComponent,
+    LoginComponent,
+    AuthenticationComponent
 
     
   ],

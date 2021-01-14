@@ -1,3 +1,6 @@
+import { LoginComponent } from './account/login/login.component';
+import { AuthGuard } from './account/shared/auth.guard';
+import { AuthenticationComponent } from './views/authentication/authentication.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,53 +21,65 @@ import { ProfessorDeleteComponent } from './components/professor/professor-delet
 
 const routes: Routes = [
   {
-    path: "",
-    component: HomeComponent
+    path: '',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'alunos',
+        component: AlunoCrudComponent
+      },
+      {
+        path: "professores",
+        component: ProfessorCrudComponent
+      },
+      {
+        path: "trabalhos",
+        component: TrabalhoCrudComponent
+      },
+      {
+        path: "calendario",
+        component: CalendarioComponent
+      },
+      {
+        path: "meusdados",
+        component: MeusDadosComponent
+      },
+      {
+        path: "alunos/create",
+        component: AlunoCreateComponent
+      },
+      {
+        path: "alunos/update/:id",
+        component: AlunoUpdateComponent
+      },
+      {
+        path: "alunos/delete/:id",
+        component: AlunoDeleteComponent
+      },
+      {
+        path: "professores/create",
+        component: ProfessorCreateComponent
+      },
+      {
+        path: "professores/update/:id",
+        component: ProfessorUpdateComponent
+      },
+      {
+        path: "professores/delete/:id",
+        component: ProfessorDeleteComponent
+      }
+    ],
+    canActivate: [AuthGuard]
   },
   {
-    path: "alunos",
-    component: AlunoCrudComponent
+    path: '',
+    component: LoginComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
+      {path: 'login', component: LoginComponent}
+    ]
   },
-  {
-    path: "professores",
-    component: ProfessorCrudComponent
-  },
-  {
-    path: "trabalhos",
-    component: TrabalhoCrudComponent
-  },
-  {
-    path: "calendario",
-    component: CalendarioComponent
-  },
-  {
-    path: "meusdados",
-    component: MeusDadosComponent
-  },
-  {
-    path: "alunos/create",
-    component: AlunoCreateComponent
-  },
-  {
-    path: "alunos/update/:id",
-    component: AlunoUpdateComponent
-  },
-  {
-    path: "alunos/delete/:id",
-    component: AlunoDeleteComponent
-  },
-  {
-    path: "professores/create",
-    component: ProfessorCreateComponent
-  },
-  {
-    path: "professores/update/:id",
-    component: ProfessorUpdateComponent
-  },
-  {
-    path: "professores/delete/:id",
-    component: ProfessorDeleteComponent
-  }
+  
 ];
 
 @NgModule({

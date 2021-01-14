@@ -17,6 +17,7 @@ export class AlunoCreateComponent implements OnInit {
     lastName: '',
     cpf: null as any,
     personType: PersonType.STUDANT
+    
   }
 
   constructor(private alunoService: AlunoService,
