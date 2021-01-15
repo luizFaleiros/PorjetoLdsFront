@@ -2,17 +2,22 @@
     <mat-card-title>Novo Aluno</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="aluno.name" name="name">
+            <input matInput placeholder="Nome" [(ngModel)]="aluno.firstName" name="firstName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Sobrenome" [(ngModel)]="aluno.lastname" name="lastname">
+            <input matInput placeholder="Sobrenome" [(ngModel)]="aluno.lastName" name="lastName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Cpf" [(ngModel)]="aluno.cpf" name="cpf">
+            <input matInput placeholder="Código" [(ngModel)]="aluno.code" name="code">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-mail" [(ngModel)]="aluno.email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Senha" [(ngModel)]="aluno.password" name="password">
         </mat-form-field>
 
     </form>
-
 
     <button mat-raised-button (click)="createAluno()" color="primary">
         Salvar

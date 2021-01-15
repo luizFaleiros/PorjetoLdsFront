@@ -11,11 +11,12 @@ import { PersonType } from '../person-type-enum';
 })
 export class AlunoCreateComponent implements OnInit {
 
-  aluno: Aluno = {
-    id: '',
-    name: '',
+  //aluno = {} as Aluno
+    aluno: Aluno = {
+    id: null as any,
+    firstName: '',
     lastName: '',
-    cpf: null as any,
+    password: '',
     personType: PersonType.STUDANT
   }
 
@@ -23,10 +24,10 @@ export class AlunoCreateComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    
   }
 
   createAluno(): void{
+    //this.aluno.personType=PersonType.STUDANT
     this.alunoService.create(this.aluno).subscribe(() => {
       this.alunoService.showMessage('Aluno criado com sucesso!')
       this.router.navigate(['/alunos'])

@@ -10,13 +10,13 @@ import { ProfessorService } from '../professor.service';
 export class ProfessorReadComponent implements OnInit {
 
   professores: Professor[] | undefined
-  displayedColumns = ['id', 'name', 'lastname', 'cpf', 'action']
+  displayedColumns = ['firstName', 'lastName', 'email', 'action']
 
   constructor(private professorService: ProfessorService) { }
 
   ngOnInit(): void {
-    this.professorService.read().subscribe(professores => {
-      this.professores = professores
+    this.professorService.get().subscribe(professores => {
+      this.professores = professores;
     })
   }
 

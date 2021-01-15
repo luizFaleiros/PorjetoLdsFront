@@ -2,17 +2,22 @@
     <mat-card-title>Novo Professor</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Nome" [(ngModel)]="professor.name" name="name">
+            <input matInput placeholder="Nome" [(ngModel)]="professor.firstName" name="firstName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Sobrenome" [(ngModel)]="professor.lastname" name="lastname">
+            <input matInput placeholder="Sobrenome" [(ngModel)]="professor.lastName" name="lastName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Cpf" [(ngModel)]="professor.cpf" name="cpf">
+            <input matInput placeholder="CPF" [(ngModel)]="professor.cpf" name="cpf">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-mail" [(ngModel)]="professor.email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Senha" [(ngModel)]="professor.password" name="password">
         </mat-form-field>
 
     </form>
-
 
     <button mat-raised-button (click)="createProfessor()" color="primary">
         Salvar

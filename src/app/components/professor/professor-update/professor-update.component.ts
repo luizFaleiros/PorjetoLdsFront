@@ -10,13 +10,13 @@ import { ProfessorService } from '../professor.service';
 })
 export class ProfessorUpdateComponent implements OnInit {
 
-  professor: Professor | undefined
+  professor = {} as Professor;
 
   constructor(private professorService: ProfessorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.professorService.readById(id).subscribe(professor => {
+    this.professorService.getById(id).subscribe(professor => {
       this.professor = professor
     });
   }

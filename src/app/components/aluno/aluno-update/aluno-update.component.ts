@@ -10,15 +10,15 @@ import { AlunoService } from '../aluno.service';
 })
 export class AlunoUpdateComponent implements OnInit {
 
-  aluno: Aluno | undefined
+  aluno = {} as Aluno;
 
   constructor(private alunoService: AlunoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.alunoService.readById(id).subscribe(aluno => {
+   /* const id = this.route.snapshot.paramMap.get('id')
+    this.alunoService.getById(id).subscribe(aluno => {
       this.aluno = aluno
-    });
+    });*/
   }
 
   updateAluno(): void {

@@ -15,19 +15,19 @@ export class AlunoDeleteComponent implements OnInit {
   constructor(private alunoService: AlunoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
-    this.alunoService.readById(id).subscribe(aluno => {
+   /* const id = this.route.snapshot.paramMap.get('id')
+    this.alunoService.getById(id).subscribe(aluno => {
       this.aluno = aluno
-    });
+    });*/
   }
 
-  deleteAluno(): void {
+ /* deleteAluno(): void {
 
      this.alunoService.delete(this.aluno.id).subscribe(() => {
      this.alunoService.showMessage('Dados do aluno atualizado com sucesso!')
      this.router.navigate(['/alunos']);
     });
-  }
+  }*/
 
   cancel(): void {
     this.router.navigate(['/alunos']);

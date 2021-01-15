@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonType } from '../person-type-enum';
+
 import { Router } from '@angular/router';
 import { ProfessorService } from '../professor.service';
 import { Professor } from '../professor.model';
+import { PersonType } from '../../aluno/person-type-enum';
 
 
 @Component({
@@ -12,11 +13,12 @@ import { Professor } from '../professor.model';
 })
 export class ProfessorCreateComponent implements OnInit {
 
+  //professor = {} as Professor
   professor: Professor = {
-    id: '',
-    name: '',
+    id: null as any,
+    firstName: '',
     lastName: '',
-    cpf: null as any,
+    password: '',
     personType: PersonType.PROFESSOR
   }
 
@@ -27,6 +29,7 @@ export class ProfessorCreateComponent implements OnInit {
   }
 
   createProfessor(): void{
+    //this.professor.personType=PersonType.PROFESSOR
     this.professorService.create(this.professor).subscribe(() => {
       this.professorService.showMessage('Professor criado com sucesso!')
       this.router.navigate(['/professores'])

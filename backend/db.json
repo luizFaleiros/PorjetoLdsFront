@@ -79,6 +79,14 @@
       "cpf": "2312434",
       "personType": "PROFESSOR",
       "lastname": "12343"
+    },
+    {
+      "id": 9,
+      "name": "teste",
+      "lastName": "",
+      "cpf": "este",
+      "personType": "PROFESSOR",
+      "lastname": "teste"
     }
   ]
 }

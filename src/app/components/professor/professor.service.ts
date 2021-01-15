@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Professor } from './professor.model';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfessorService {
 
-  baseUrl = "http://localhost:3001/professores"
+  baseUrl = "https://projeto-lds.herokuapp.com/person"
+
+  token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsb0BnbWFpbC5jb20iLCJleHAiOjE2MTA3NTc1NTV9.IgyQFis4Qu-ygf_hs2wEKqpT4M3SwtnDNjrdij0CffXVTtML5XRs_fXf_L7vWqKfb28ipaquTbmM02NjGqs2Pw';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient ) { }
 
@@ -21,22 +24,31 @@ export class ProfessorService {
     })
   }
 
-  create(professor: Professor): Observable<Professor> {
-    return this.http.post<Professor>(this.baseUrl, professor);
+  get(): Observable<Professor[]>  {
+    return this.http.get<Professor[]>( `${this.baseUrl}/list`, {
+      headers: new HttpHeaders().append('Authorization', this.token)
+    });
   }
 
-  read(): Observable<Professor[]> {
-    return this.http.get<Professor[]>(this.baseUrl);
+  create(person: Professor): Observable<Professor> {
+    return this.http.post<Professor>(`${this.baseUrl}/save`, person, {
+      headers: new HttpHeaders().append('Authorization', this.token)
+    });
   }
 
-  readById(id: string): Observable<Professor>{
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.get<Professor>(url);
+  getById(id: number): Observable<Professor>{
+    const url = `${this.baseUrl}/get-by-id/${id}`;
+    return this.http.get<Professor>(url, {
+      headers: new HttpHeaders().append('Authorization', this.token)
+    });
+    
   }
 
-  update(professor: Professor): Observable<Professor>{
-    const url = `${this.baseUrl}/${professor.id}`;
-    return this.http.put<Professor>(url, professor);
+  update(person: Professor): Observable<Professor>{
+    const url = `${this.baseUrl}/${person.id}`;
+    return this.http.put<Professor>(url, person, {
+      headers: new HttpHeaders().append('Authorization', this.token)
+    });
   }
 
   delete(id: number): Observable<Professor>{
