@@ -1,5 +1,5 @@
 <mat-card class="card mat-elevation-z4">
-    <mat-card-title>Novo Aluno</mat-card-title>
+    <mat-card-title>Alterar dados do aluno</mat-card-title>
     <form>
         <mat-form-field>
             <input matInput placeholder="Nome" [(ngModel)]="aluno.firstName" name="firstName">
@@ -8,7 +8,7 @@
             <input matInput placeholder="Sobrenome" [(ngModel)]="aluno.lastName" name="lastName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Código" [(ngModel)]="aluno.code" name="code">
+            <input matInput placeholder="CPF" [(ngModel)]="aluno.cpf" name="cpf">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="E-mail" [(ngModel)]="aluno.email" name="email">
@@ -16,11 +16,10 @@
         <mat-form-field>
             <input matInput placeholder="Senha" [(ngModel)]="aluno.password" name="password">
         </mat-form-field>
-
     </form>
 
-    <button mat-raised-button (click)="createAluno()" color="primary">
-        Salvar
+    <button mat-raised-button (click)="updateAluno()" color="primary">
+        Atualizar
     </button>
 
     <button mat-raised-button (click)="cancel()">
@@ -28,3 +27,4 @@
     </button>
 
 </mat-card>
+
