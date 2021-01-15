@@ -15,9 +15,11 @@ export class ProfessorCreateComponent implements OnInit {
 
   //professor = {} as Professor
   professor: Professor = {
-    id: null as any,
-    firstName: '',
+    id: 0,
+    cpf: '',
     lastName: '',
+    firstName: '',
+    email: '',
     password: '',
     personType: PersonType.PROFESSOR
   }
@@ -34,7 +36,7 @@ export class ProfessorCreateComponent implements OnInit {
       this.professorService.showMessage('Professor criado com sucesso!')
       this.router.navigate(['/professores'])
     })
-    
+
   }
 
   cancel(): void{

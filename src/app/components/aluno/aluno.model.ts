@@ -7,7 +7,8 @@ export interface Aluno{
     email: string;
     personType: PersonType;
     password: string;
-    code: string
+    code: string;
+    cpf: string;
 }
 
 
