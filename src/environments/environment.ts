@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   urls:{
     personList: `${api}/person/list`,
-    login: `${api}/login`
+    login: `${api}/login`,
+    personById: `${api}/person/get-by-id`
   }
 };
 
