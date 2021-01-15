@@ -15,7 +15,7 @@ export class AccountService {
                .post<Login>(environment.urls.login, user,
                 {
                   observe: 'response',
-                  responseType: 'text'
+                  responseType: 'text' as 'json'
                 })
 }
 

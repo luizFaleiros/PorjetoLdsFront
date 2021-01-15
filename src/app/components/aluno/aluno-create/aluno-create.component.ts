@@ -17,8 +17,11 @@ export class AlunoCreateComponent implements OnInit {
     firstName: '',
     lastName: '',
     password: '',
+    email: '',
+    code: '',
+    cpf: '',
     personType: PersonType.STUDANT
-    
+
   }
 
   constructor(private alunoService: AlunoService,
@@ -33,7 +36,7 @@ export class AlunoCreateComponent implements OnInit {
       this.alunoService.showMessage('Aluno criado com sucesso!')
       this.router.navigate(['/alunos'])
     })
-    
+
   }
 
   cancel(): void{

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   async onSubmit(){
     try{
       const result = this.accountService.login(this.login).subscribe(response =>{
-      localStorage.setItem('token',response.headers.get('Authorization'));
+      localStorage.setItem('token',response.headers.get('Authorization') || '');
       });
       // navego para a rota vazia novamente
       this.router.navigate(['']);
