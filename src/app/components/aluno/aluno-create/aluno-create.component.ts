@@ -18,6 +18,7 @@ export class AlunoCreateComponent implements OnInit {
     lastName: '',
     password: '',
     personType: PersonType.STUDANT
+    
   }
 
   constructor(private alunoService: AlunoService,
