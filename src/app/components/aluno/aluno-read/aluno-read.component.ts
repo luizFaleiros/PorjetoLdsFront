@@ -9,8 +9,8 @@ import { AlunoService } from '../aluno.service';
 })
 export class AlunoReadComponent implements OnInit {
 
-  alunos: Aluno[] | undefined
-  displayedColumns = ['firstName', 'lastName', 'email', 'action']
+  alunos: Aluno[] = [];
+  displayedColumns = ['firstName', 'lastName', 'code', 'email', 'action']
 
   constructor(private alunoService: AlunoService) { }
 

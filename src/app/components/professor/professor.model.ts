@@ -8,4 +8,5 @@ export interface Professor{
     personType: PersonType;
     password: string;
     cpf: string;
+
 }
