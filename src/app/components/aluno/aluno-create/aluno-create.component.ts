@@ -19,6 +19,7 @@ export class AlunoCreateComponent implements OnInit {
     password: '',
     email: '',
     code: '',
+    cpf: '',
     personType: PersonType.STUDANT
 
   }
