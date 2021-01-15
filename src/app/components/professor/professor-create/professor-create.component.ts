@@ -20,6 +20,7 @@ export class ProfessorCreateComponent implements OnInit {
     lastName: '',
     password: '',
     personType: PersonType.PROFESSOR
+    
   }
 
   constructor(private professorService: ProfessorService,
