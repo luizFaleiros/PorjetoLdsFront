@@ -7,7 +7,8 @@ export const environment = {
   urls:{
     personList: `${api}/person/list`,
     login: `${api}/login`,
-    personById: `${api}/person/get-by-id`
+    personById: `${api}/person/get-by-id`,
+    personSave: `${api}/save`
   }
 };
 
