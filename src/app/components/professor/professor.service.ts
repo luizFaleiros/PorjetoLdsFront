@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Professor } from './professor.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,9 +11,9 @@ import { Professor } from './professor.model';
 })
 export class ProfessorService {
 
-  baseUrl = "https://projeto-lds.herokuapp.com/person"
+  //baseUrl = "https://projeto-lds.herokuapp.com/person"
 
-  token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsb0BnbWFpbC5jb20iLCJleHAiOjE2MTA3NTc1NTV9.IgyQFis4Qu-ygf_hs2wEKqpT4M3SwtnDNjrdij0CffXVTtML5XRs_fXf_L7vWqKfb28ipaquTbmM02NjGqs2Pw';
+  //token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsb0BnbWFpbC5jb20iLCJleHAiOjE2MTA3NTc1NTV9.IgyQFis4Qu-ygf_hs2wEKqpT4M3SwtnDNjrdij0CffXVTtML5XRs_fXf_L7vWqKfb28ipaquTbmM02NjGqs2Pw';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient ) { }
 
@@ -25,35 +26,39 @@ export class ProfessorService {
   }
 
   get(): Observable<Professor[]>  {
-    return this.http.get<Professor[]>( `${this.baseUrl}/list`, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+    return this.http.get<Professor[]>( environment.urls.personList, {
+      headers: new HttpHeaders().append('Authorization', this.gettoken())
     });
   }
 
   create(person: Professor): Observable<Professor> {
-    return this.http.post<Professor>(`${this.baseUrl}/save`, person, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+    return this.http.post<Professor>(environment.urls.personSave, person, {
+      headers: new HttpHeaders().append('Authorization', this.gettoken())
     });
   }
 
   getById(id: number): Observable<Professor>{
-    const url = `${this.baseUrl}/get-by-id/${id}`;
+    const url = `${environment.urls.personById}/${id}`;
     return this.http.get<Professor>(url, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+      headers: new HttpHeaders().append('Authorization', this.gettoken())
     });
     
   }
 
   update(person: Professor): Observable<Professor>{
-    const url = `${this.baseUrl}/${person.id}`;
+    const url = `${environment.urls.personUpdate}/${person.id}`;
     return this.http.put<Professor>(url, person, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+      headers: new HttpHeaders().append('Authorization', this.gettoken())
     });
   }
 
-  delete(id: number): Observable<Professor>{
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Professor>(url);
+  // delete(id: number): Observable<Professor>{
+  //   const url = `${this.baseUrl}/${id}`;
+  //   return this.http.delete<Professor>(url);
+  // }
+
+  gettoken(): string {
+    return localStorage.getItem("token") || '';
   }
 
 }

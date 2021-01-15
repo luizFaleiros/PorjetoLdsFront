@@ -8,7 +8,9 @@ export const environment = {
     personList: `${api}/person/list`,
     login: `${api}/login`,
     personById: `${api}/person/get-by-id`,
-    personSave: `${api}/save`
+    personSave: `${api}/person/save`,
+    personUpdate: `${api}/person/update`,
+
   }
 };
 
