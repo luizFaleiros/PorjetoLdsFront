@@ -1,7 +1,7 @@
-import { PersonType } from "./person-type-enum";
+import { PersonType } from './person-type-enum';
 
 export interface Aluno{
-    id: number;
+    id?: number;
     firstName: string;
     lastName: string;
     email: string;
