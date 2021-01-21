@@ -10,6 +10,7 @@ export const environment = {
     personById: `${api}/person/get-by-id`,
     personSave: `${api}/person/save`,
     personUpdate: `${api}/person/update`,
+    personDelete: `${api}/person/delete`,
 
   }
 };

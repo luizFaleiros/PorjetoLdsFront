@@ -8,7 +8,7 @@ export interface Aluno{
     personType: PersonType;
     password: string;
     code: string;
-    cpf: string;
+    cpf?: string;
 }
 
 

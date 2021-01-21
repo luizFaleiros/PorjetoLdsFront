@@ -7,6 +7,6 @@ export interface Professor{
     email: string;
     personType: PersonType;
     password: string;
-    cpf: string;
+    cpf?: string;
 
 }

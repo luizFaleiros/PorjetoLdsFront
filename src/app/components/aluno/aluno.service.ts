@@ -3,58 +3,60 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Aluno } from './aluno.model';
-
+import { environment } from 'src/environments/environment';
+import { PersonType } from './person-type-enum';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AlunoService {
 
-  baseUrl = "https://projeto-lds.herokuapp.com/person"
+   
+    constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
-  token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsb0BnbWFpbC5jb20iLCJleHAiOjE2MTA3NTc1NTV9.IgyQFis4Qu-ygf_hs2wEKqpT4M3SwtnDNjrdij0CffXVTtML5XRs_fXf_L7vWqKfb28ipaquTbmM02NjGqs2Pw';
+    showMessage(msg: string): void {
+        this.snackBar.open(msg, 'X', {
+            duration: 3000,
+            horizontalPosition: "right",
+            verticalPosition: "top"
+        })
+    }
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient ) { }
+    get(): Observable<Aluno[]> {
+        return this.http.get<Aluno[]>(`${environment.urls.personList}?person-type= ${PersonType.STUDANT}`, {
+            headers: new HttpHeaders().append('Authorization', this.gettoken())
+        });
+    }
 
-  showMessage(msg: string): void {
-    this.snackBar.open(msg, 'X', {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top"
-    })
-  }
+    create(person: Aluno): Observable<Aluno> {
+        return this.http.post<Aluno>(environment.urls.personSave, person, {
+            headers: new HttpHeaders().append('Authorization', this.gettoken())
+        });
+    }
 
+    getById(id: number): Observable<Aluno> {
+        const url = `${environment.urls.personById}/${id}`;
+        return this.http.get<Aluno>(url, {
+            headers: new HttpHeaders().append('Authorization', this.gettoken())
+        });
+    }
 
-  get(): Observable<Aluno[]>  {
-    return this.http.get<Aluno[]>( `${this.baseUrl}/list`, {
-      headers: new HttpHeaders().append('Authorization', this.token)
-    });
-    
-  }
+    update(person: Aluno): Observable<Aluno> {
+        const url = `${environment.urls.personUpdate}/${person.id}`;
+        return this.http.put<Aluno>(url, person, {
+            headers: new HttpHeaders().append('Authorization', this.gettoken())
+        });
+    }
 
-  create(person: Aluno): Observable<Aluno> {
-    return this.http.post<Aluno>(`${this.baseUrl}/save`, person, {
-      headers: new HttpHeaders().append('Authorization', this.token)
-    });
-  }
+    delete(aluno: Aluno) {
+        const url = `${environment.urls.personDelete}/${aluno.id}`;
+        return this.http.delete<Aluno>(url, {
+            headers: new HttpHeaders().append('Authorization', this.gettoken())
+        });
+    }
 
-  getById(id: number): Observable<Aluno>{
-    const url = `${this.baseUrl}/get-by-id/${id}`;
-    return this.http.get<Aluno>(url, {
-      headers: new HttpHeaders().append('Authorization', this.token)
-    });
-    
-  }
+    gettoken(): string {
+        return localStorage.getItem("token") || '';
+    }
 
-  update(person: Aluno): Observable<Aluno>{
-    const url = `${this.baseUrl}/${person.id}`;
-    return this.http.put<Aluno>(url, person, {
-      headers: new HttpHeaders().append('Authorization', this.token)
-    });
-  }
-
-  delete(id: number): Observable<Aluno>{
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Aluno>(url);
-  }
 }

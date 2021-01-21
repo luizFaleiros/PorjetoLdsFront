@@ -15,14 +15,14 @@ export class AlunoUpdateComponent implements OnInit {
   constructor(private alunoService: AlunoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-   /* const id = this.route.snapshot.paramMap.get('id')
+    const id = parseInt(this.route.snapshot.paramMap.get('id') || '');
     this.alunoService.getById(id).subscribe(aluno => {
       this.aluno = aluno
-    });*/
+    });
   }
 
   updateAluno(): void {
-    this.alunoService.update(this.aluno).subscribe(() => {
+      this.alunoService.update(this.aluno).subscribe(() => {
       this.alunoService.showMessage('Dados do aluno atualizado com sucesso!')
       this.router.navigate(['/alunos']);
     });

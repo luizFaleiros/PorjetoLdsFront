@@ -8,7 +8,10 @@
             <input matInput placeholder="Sobrenome" [(ngModel)]="aluno.lastName" name="lastName">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="CPF" [(ngModel)]="aluno.cpf" name="cpf">
+            <input matInput placeholder="Cpf" [(ngModel)]="aluno.cpf" name="cpf" disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Código" [(ngModel)]="aluno.code" name="code">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="E-mail" [(ngModel)]="aluno.email" name="email">
