@@ -13,7 +13,6 @@ export class AlunoCreateComponent implements OnInit {
 
   //aluno = {} as Aluno
     aluno: Aluno = {
-    id: null as any,
     firstName: '',
     lastName: '',
     password: '',
@@ -23,6 +22,7 @@ export class AlunoCreateComponent implements OnInit {
     personType: PersonType.STUDANT
 
   }
+
 
   constructor(private alunoService: AlunoService,
     private router: Router) { }

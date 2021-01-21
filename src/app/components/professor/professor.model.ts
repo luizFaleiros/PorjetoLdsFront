@@ -1,12 +1,12 @@
 import { PersonType } from "./person-type-enum";
 
 export interface Professor{
-    id: number;
+    id?: number;
     firstName: string;
     lastName: string;
     email: string;
     personType: PersonType;
     password: string;
-    cpf: string;
+    cpf?: string;
 
 }

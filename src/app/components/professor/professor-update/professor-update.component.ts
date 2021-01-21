@@ -22,7 +22,7 @@ export class ProfessorUpdateComponent implements OnInit {
   }
 
   updateProfessor(): void {
-    this.professorService.update(this.professor).subscribe(() => {
+      this.professorService.update(this.professor).subscribe(() => {
       this.professorService.showMessage('Dados do professor atualizado com sucesso!')
       this.router.navigate(['/professores']);
     });

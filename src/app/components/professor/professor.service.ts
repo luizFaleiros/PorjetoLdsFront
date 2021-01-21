@@ -4,16 +4,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Professor } from './professor.model';
 import { environment } from 'src/environments/environment';
+import { PersonType } from '../aluno/person-type-enum';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfessorService {
-
-  //baseUrl = "https://projeto-lds.herokuapp.com/person"
-
-  //token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsb0BnbWFpbC5jb20iLCJleHAiOjE2MTA3NTc1NTV9.IgyQFis4Qu-ygf_hs2wEKqpT4M3SwtnDNjrdij0CffXVTtML5XRs_fXf_L7vWqKfb28ipaquTbmM02NjGqs2Pw';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient ) { }
 
@@ -26,7 +23,7 @@ export class ProfessorService {
   }
 
   get(): Observable<Professor[]>  {
-    return this.http.get<Professor[]>( environment.urls.personList, {
+    return this.http.get<Professor[]>(`${environment.urls.personList}?person-type= ${PersonType.PROFESSOR}`, {
       headers: new HttpHeaders().append('Authorization', this.gettoken())
     });
   }
@@ -52,10 +49,13 @@ export class ProfessorService {
     });
   }
 
-  // delete(id: number): Observable<Professor>{
-  //   const url = `${this.baseUrl}/${id}`;
-  //   return this.http.delete<Professor>(url);
-  // }
+  delete(professor: Professor) {
+    console.log(professor.id);
+    const url = `${environment.urls.personDelete}/${professor.id}`;
+    return this.http.delete<Professor>(url, {
+      headers: new HttpHeaders().append('Authorization', this.gettoken())
+    });
+  }
 
   gettoken(): string {
     return localStorage.getItem("token") || '';

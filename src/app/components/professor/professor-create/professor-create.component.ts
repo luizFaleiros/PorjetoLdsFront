@@ -15,8 +15,6 @@ export class ProfessorCreateComponent implements OnInit {
 
   //professor = {} as Professor
   professor: Professor = {
-    id: 0,
-
     lastName: '',
     firstName: '',
     email: '',

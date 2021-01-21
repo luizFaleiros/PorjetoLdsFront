@@ -1,18 +1,19 @@
-<!-- <mat-card class="card mat-elevation-z4">
+<mat-card class="card mat-elevation-z4">
     <mat-card-title>Deletar professor</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Nome" [value]="professor.name" name="name" disabled>
+            <input matInput placeholder="Nome" [value]="professor.firstName" name="firstName" disabled>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Sobrenome" [value]="professor.lastname" name="lastname" disabled>
+            <input matInput placeholder="Sobrenome" [value]="professor.lastName" name="lastName" disabled>
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Cpf" [value]="professor.cpf" name="cpf" disabled>
         </mat-form-field>
-
+        <mat-form-field>
+            <input matInput placeholder="E-mail" [value]="professor.email" name="email" disabled>
+        </mat-form-field>
     </form>
-
 
     <button mat-raised-button (click)="deleteProfessor()" color="warn">
         Deletar
@@ -22,4 +23,4 @@
         Cancelar
     </button>
 
-</mat-card> -->
+</mat-card> 
