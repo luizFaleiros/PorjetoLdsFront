@@ -4,6 +4,7 @@ import { Aluno } from './../../../aluno/aluno.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from 'src/app/components/aluno/aluno.service';
+import { TccModel } from '../models/Tcc.model';
 
 @Component({
   selector: 'app-create-tcc',
@@ -39,12 +40,11 @@ export class CreateTccComponent implements OnInit {
 
 
   createTCC(){
-    console.log(this.tccForm.value);
-    tcc = this.castToTccModel(this.tccForm.value);
-    this.tccService.save();
+    const tcc = this.castToTccModel(this.tccForm.value);
+    this.tccService.save(tcc);
   }
   castToTccModel(value: any): TccModel {
-    
+    return this.tccForm.value;
   }
 
 
