@@ -17,4 +17,14 @@ export class AuthTokenService {
       return null;
     }
   }
+
+  public setToken(token: string){
+      token = token.substr(7);
+      localStorage.setItem('token', token);
+  }
+
+  public sendToken(): string{
+    return `Bearer ${this.getToken}`
+  }
+
 }
