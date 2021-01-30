@@ -1,20 +1,17 @@
+import { AuthTokenService } from './../../../account/shared/auth-token.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Aluno } from '../aluno.model';
-
+import { environment } from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunoService {
 
-  baseUrl = "https://projeto-lds.herokuapp.com/person"
-
-  token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsb0BnbWFpbC5jb20iLCJleHAiOjE2MTA3NTc1NTV9.IgyQFis4Qu-ygf_hs2wEKqpT4M3SwtnDNjrdij0CffXVTtML5XRs_fXf_L7vWqKfb28ipaquTbmM02NjGqs2Pw';
-
-  constructor(private snackBar: MatSnackBar, private http: HttpClient ) { }
+  constructor(private snackBar: MatSnackBar, private http: HttpClient, private tokenService: AuthTokenService ) { }
 
   showMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
@@ -26,30 +23,30 @@ export class AlunoService {
 
 
   get(): Observable<Aluno[]>  {
-    return this.http.get<Aluno[]>( `${this.baseUrl}/list`, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+    return this.http.get<Aluno[]>( environment.urls.personList, {
+      headers: new HttpHeaders().append('Authorization', this.tokenService.sendToken())
     });
 
   }
 
   create(person: Aluno): Observable<Aluno> {
-    return this.http.post<Aluno>(`${this.baseUrl}/save`, person, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+    return this.http.post<Aluno>(environment.urls.personSave, person, {
+      headers: new HttpHeaders().append('Authorization',this.tokenService.sendToken())
     });
   }
 
   getById(id: number): Observable<Aluno>{
-    const url = `${this.baseUrl}/get-by-id/${id}`;
+    const url = `${environment.urls.personById}/${id}`;
     return this.http.get<Aluno>(url, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+      headers: new HttpHeaders().append('Authorization', this.tokenService.sendToken())
     });
 
   }
 
   update(person: Aluno): Observable<Aluno>{
-    const url = `${this.baseUrl}/${person.id}`;
+    const url = `${environment.urls.personUpdate}/${person.id}`;
     return this.http.put<Aluno>(url, person, {
-      headers: new HttpHeaders().append('Authorization', this.token)
+      headers: new HttpHeaders().append('Authorization', this.tokenService.sendToken())
     });
   }
 

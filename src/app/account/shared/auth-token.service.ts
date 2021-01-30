@@ -24,7 +24,7 @@ export class AuthTokenService {
   }
 
   public sendToken(): string{
-    return `Bearer ${this.getToken}`
+    return `Bearer ${this.getToken()}`
   }
 
 }

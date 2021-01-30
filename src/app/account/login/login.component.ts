@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AccountService } from './../shared/account.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Login } from '../shared/Login.interface';
+import { AuthTokenService } from '../shared/auth-token.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private tokenService: AuthTokenService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
   async onSubmit(){
 
       const result = this.accountService.login(this.login).subscribe(response =>{
-      localStorage.setItem('token',response.headers.get('Authorization') || '');
+      this.tokenService.setToken(response.headers.get('Authorization') || '');
       this.usuarioAutenticado = true;
       this.showMenu.emit(this.usuarioAutenticado);
       this.router.navigate(['']);

@@ -82,6 +82,7 @@ registerLocaleData(localePt);
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatCardModule,
     TccModule
 
 

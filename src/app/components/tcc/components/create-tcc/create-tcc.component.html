@@ -1,3 +1,19 @@
-<form>
+<form [formGroup]="tccForm" (submit) ="createTCC()">
+    <mat-form-field>
+      <mat-label>Nome do Trabalho: </mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field><br/>
+    <mat-form-field>
+      <mat-label>Tema: </mat-label>
+      <input matInput type="text" formControlName="subject">
+    </mat-form-field><br/>
+    <!--- Auto complete-->
+    <mat-form-field appearance="fill">
+      <mat-label>Alunos</mat-label>
+      <mat-select formControlName="studants" multiple>
+        <mat-option *ngFor="let studant of studants" [value]="studant">{{studant.code}} {{studant.firstName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
+    <input type="submit">
 </form>

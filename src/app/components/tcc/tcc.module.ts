@@ -7,9 +7,12 @@ import { ListarTccComponent } from './components/listar-tcc/listar-tcc.component
 import { TccDetalheComponent } from './components/tcc-detalhe/tcc-detalhe.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     CreateTccComponent,
@@ -22,7 +25,14 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatListModule
+
   ],
   exports: [
     CreateTccComponent,
