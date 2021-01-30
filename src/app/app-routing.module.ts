@@ -1,3 +1,7 @@
+import { UpdateTccComponent } from './components/tcc/components/update-tcc/update-tcc.component';
+import { TccDetalheComponent } from './components/tcc/components/tcc-detalhe/tcc-detalhe.component';
+import { ListarTccComponent } from './components/tcc/components/listar-tcc/listar-tcc.component';
+import { CreateTccComponent } from './components/tcc/components/create-tcc/create-tcc.component';
 import { LoginComponent } from './account/login/login.component';
 import { AuthGuard } from './account/shared/auth.guard';
 import { AuthenticationComponent } from './views/authentication/authentication.component';
@@ -34,7 +38,29 @@ const routes: Routes = [
       },
       {
         path: "trabalhos",
-        component: TrabalhoCrudComponent
+        children:
+        [
+          {
+            path: '',
+            component: TrabalhoCrudComponent
+          },
+          {
+            path: 'save',
+            component: CreateTccComponent
+          },
+          {
+            path: 'list',
+            component: ListarTccComponent
+          },
+          {
+            path: 'detalhe',
+            component: TccDetalheComponent
+          },
+          {
+            path: 'update',
+            component: UpdateTccComponent
+          }
+        ]
       },
       {
         path: "calendario",
@@ -67,7 +93,7 @@ const routes: Routes = [
       {
         path: "professores/delete/:id",
         component: ProfessorDeleteComponent
-      }
+      },
     ],
     canActivate: [AuthGuard]
   },
@@ -79,7 +105,7 @@ const routes: Routes = [
       {path: 'login', component: LoginComponent}
     ]
   },
-  
+
 ];
 
 @NgModule({

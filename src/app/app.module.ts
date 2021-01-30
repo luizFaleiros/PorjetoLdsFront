@@ -1,3 +1,4 @@
+import { TccModule } from './components/tcc/tcc.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
@@ -64,7 +65,7 @@ registerLocaleData(localePt);
     LoginComponent,
     AuthenticationComponent
 
-    
+
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,8 @@ registerLocaleData(localePt);
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    TccModule
 
 
   ],
