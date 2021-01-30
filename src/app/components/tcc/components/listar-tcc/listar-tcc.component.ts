@@ -1,4 +1,6 @@
+import { TccService } from './../../services/tcc.service';
 import { Component, OnInit } from '@angular/core';
+import { TccModel } from '../models/Tcc.model';
 
 @Component({
   selector: 'app-listar-tcc',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarTccComponent implements OnInit {
 
-  constructor() { }
+  trabalhos: TccModel[] = [];
+  displayedColumns = ['nome', 'subject', 'alunos']
+
+  constructor(private tccService: TccService) { }
 
   ngOnInit(): void {
+    this.tccList();
   }
 
+  tccList(): TccModel[]{
+    return this.tccService.list();
+  }
 }

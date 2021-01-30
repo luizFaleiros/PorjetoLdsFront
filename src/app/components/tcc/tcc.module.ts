@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -13,6 +14,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     CreateTccComponent,
@@ -31,7 +33,9 @@ import {MatListModule} from '@angular/material/list';
     MatSelectModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatListModule
+    MatListModule,
+    RouterModule,
+    MatTableModule
 
   ],
   exports: [

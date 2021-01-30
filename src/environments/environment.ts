@@ -11,7 +11,8 @@ export const environment = {
     personSave: `${api}/person/save`,
     personUpdate: `${api}/person/update`,
     personDelete: `${api}/person/delete`,
-    tccSave: `${api}/tcc/save`
+    tccSave: `${api}/tcc/save`,
+    tccList: `${api}/tcc/list`,
 
   }
 };

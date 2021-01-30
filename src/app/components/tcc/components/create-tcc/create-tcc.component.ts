@@ -28,7 +28,7 @@ export class CreateTccComponent implements OnInit {
     this.tccForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       subject: ['', [Validators.required, Validators.minLength(2)]],
-      studants: [this.studants, [Validators.required]]
+      studants: [this.studants]
     });
     this.fillStudants();
   }
@@ -43,6 +43,7 @@ export class CreateTccComponent implements OnInit {
     const tcc = this.castToTccModel(this.tccForm.value);
     this.tccService.save(tcc);
   }
+
   castToTccModel(value: any): TccModel {
     return this.tccForm.value;
   }
