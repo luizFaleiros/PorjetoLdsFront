@@ -3,33 +3,23 @@
 
       <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef>Nome</th>
-          <td mat-cell *matCellDef="let row">{{row.nome}}</td>
+          <td mat-cell *matCellDef="let row">{{row.name}}</td>
       </ng-container>
 
       <ng-container matColumnDef="subject">
-          <th mat-header-cell *matHeaderCellDef>Sobrenome</th>
+          <th mat-header-cell *matHeaderCellDef>Tema</th>
           <td mat-cell *matCellDef="let row">{{row.subject}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="alunos">
-          <th mat-header-cell *matHeaderCellDef>Código</th>
-          <td mat-cell *matCellDef="let row">{{row.alunos}}</td>
-      </ng-container>
-
       <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef>Editar/Deletar</th>
+          <th mat-header-cell *matHeaderCellDef>Detalhar</th>
           <td mat-cell *matCellDef="let row">
-              <a [routerLink]="['/trabalhos/update/', row.id]" class="edit">
+              <a [routerLink]="['/trabalhos/detalhe', row.id]" class="edit">
                  <i class="material-icons">
-                     edit
+                     article
                  </i>
               </a>
 
-              <a routerLink="/trabalhos/delete/{{ row.id }}" class="delete">
-                  <i class="material-icons">
-                      delete
-                  </i>
-               </a>
 
           </td>
       </ng-container>

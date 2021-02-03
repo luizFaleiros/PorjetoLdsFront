@@ -1,3 +1,4 @@
+import { TccModel } from './../models/tcc.model';
 import { TccService } from './../../services/tcc.service';
 import { Aluno } from './../../../aluno/aluno.model';
 
@@ -13,7 +14,7 @@ import { TccModel } from '../models/Tcc.model';
 })
 export class CreateTccComponent implements OnInit {
   tccForm: FormGroup;
-  studants: Aluno[];
+  studants: Aluno[] = [];
   constructor(private formBuilder: FormBuilder, private alunoService: AlunoService, private tccService: TccService) {
     this.fillStudants().subscribe(
       alunos => this.studants = alunos
@@ -27,7 +28,7 @@ export class CreateTccComponent implements OnInit {
   private initForm(){
     this.tccForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      subject: ['', [Validators.required, Validators.minLength(2)]],
+      subjects: ['', [Validators.required, Validators.minLength(2)]],
       studants: [this.studants]
     });
     this.fillStudants();
@@ -41,11 +42,15 @@ export class CreateTccComponent implements OnInit {
 
   createTCC(){
     const tcc = this.castToTccModel(this.tccForm.value);
-    this.tccService.save(tcc);
+    this.tccService.save(tcc).subscribe();
   }
 
   castToTccModel(value: any): TccModel {
-    return this.tccForm.value;
+    return {
+      name: value.name,
+      studants: value.studants,
+      subjects: value.subjects
+    };
   }
 
 

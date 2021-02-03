@@ -53,7 +53,7 @@ const routes: Routes = [
             component: ListarTccComponent
           },
           {
-            path: 'detalhe',
+            path: 'detalhe/:id',
             component: TccDetalheComponent
           },
           {

@@ -13,6 +13,8 @@ export const environment = {
     personDelete: `${api}/person/delete`,
     tccSave: `${api}/tcc/save`,
     tccList: `${api}/tcc/list`,
+    uploadFile: `${api}/tcc/upload-file`,
+    tccDetail: `${api}/tcc/detail`
 
   }
 };

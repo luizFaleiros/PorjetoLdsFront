@@ -10,15 +10,16 @@ import { TccModel } from '../models/Tcc.model';
 export class ListarTccComponent implements OnInit {
 
   trabalhos: TccModel[] = [];
-  displayedColumns = ['nome', 'subject', 'alunos']
+  displayedColumns = ['nome', 'subject','action']
 
   constructor(private tccService: TccService) { }
+
 
   ngOnInit(): void {
     this.tccList();
   }
 
-  tccList(): TccModel[]{
-    return this.tccService.list();
+  tccList(){
+    this.tccService.list().subscribe(tccs => this.trabalhos = tccs);
   }
 }

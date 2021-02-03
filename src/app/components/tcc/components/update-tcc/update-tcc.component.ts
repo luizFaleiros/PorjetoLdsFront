@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-tcc.component.css']
 })
 export class UpdateTccComponent implements OnInit {
-  fileToUpload: File = null;
+  fileToUpload: File;
 
   constructor(private tccService: TccService) { }
 
