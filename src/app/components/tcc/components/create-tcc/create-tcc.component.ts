@@ -5,6 +5,7 @@ import { Aluno } from './../../../aluno/aluno.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from 'src/app/components/aluno/aluno.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-create-tcc',
@@ -14,7 +15,7 @@ import { AlunoService } from 'src/app/components/aluno/aluno.service';
 export class CreateTccComponent implements OnInit {
   tccForm: FormGroup;
   studants: Aluno[] = [];
-  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService, private tccService: TccService) {
+  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService, private tccService: TccService, private router: Router) {
     this.fillStudants().subscribe(
       alunos => this.studants = alunos
     );
@@ -41,7 +42,9 @@ export class CreateTccComponent implements OnInit {
 
   createTCC(){
     const tcc = this.castToTccModel(this.tccForm.value);
-    this.tccService.save(tcc).subscribe();
+    this.tccService.save(tcc).subscribe( resp =>
+        this.router.navigate(['trabalhos/lista/'])
+      );
   }
 
   castToTccModel(value: any): TccModel {
