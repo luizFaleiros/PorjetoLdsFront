@@ -2,7 +2,6 @@ import { TccModel } from './../components/models/tcc.model';
 import { AuthTokenService } from './../../../account/shared/auth-token.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TccModel } from '../components/models/Tcc.model';
 import { environment } from "../../../../environments/environment";
 import { Observable } from 'rxjs';
 import { TccResponseModel } from '../components/models/tcc-response.model';

@@ -1,0 +1,11 @@
+.file{
+  padding: 1%;
+  background-color: rgb(238, 238, 238);
+  margin-bottom: 1%;
+  box-shadow: 4px 4px 2px #888888;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
