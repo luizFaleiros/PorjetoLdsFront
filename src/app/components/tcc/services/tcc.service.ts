@@ -1,14 +1,21 @@
+import { TccResponseModel } from './../components/models/tcc-response.model';
 import { TccModel } from './../components/models/tcc.model';
 import { AuthTokenService } from './../../../account/shared/auth-token.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from "../../../../environments/environment";
 import { Observable } from 'rxjs';
-import { TccResponseModel } from '../components/models/tcc-response.model';
 @Injectable({
   providedIn: 'root'
 })
 export class TccService {
+
+  upload(formData: FormData, formId: number): Observable<TccResponseModel> {
+    return this.http.put<TccResponseModel>(`${environment.urls.uploadFile}/${formId}`, formData,
+    {
+      headers: new HttpHeaders().append('Authorization', this.tokenService.sendToken())
+    });
+  }
 
   detail(tccId: number): Observable<TccResponseModel> {
     return this.http.get<TccResponseModel>(`${environment.urls.tccDetail}/${tccId}`,

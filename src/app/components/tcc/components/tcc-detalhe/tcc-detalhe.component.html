@@ -22,8 +22,12 @@
       <h1>Não existe arquivos</h1>
     </ng-template>
 
-    <label for="singleFile">Upload file</label>
-    <input id="singleFile" type="file" />
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <input type="file" name="avatar" (change)="onFileChange($event)" />
+      <input type="submit" value="Upload" />
+
+    </form>
     <br>
 
 
